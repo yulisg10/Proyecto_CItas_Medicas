@@ -22,7 +22,7 @@ class CitaList(ListView):
  	  model = CitaMedica
  	  template_name = 'CitaMedica/CitaMedica_list.html'
 
-class CitaCreate(CreateView):
+class CitaCreate(CreateView): 
 	#CitaMedica.objects.create()
  	model = CitaMedica
  	form_class = CitaMedicaForm
@@ -40,5 +40,15 @@ class CitaDelete(DeleteView):
 	template_name = 'CitaMedica/CitaMedica_delete.html'
 	#success_url = reverse_lazy("CitaMedica:listar_CitaMedica")
 
-
+def cita_create(request, id_usuario):#Función que actualiza los datos de usuario
+	if request.method == 'POST':
+		form = CitaMedicaForm(request.POST)
+		form.var=id_usuario
+		if form.is_valid():
+			form.save() 
+		return redirect('usuario:inicio')
+	else:
+		form = CitaMedicaForm()
+		form.var=id_usuario
+	return render(request, 'cita_medica/cita_medica_form.html',{'form':form})
 

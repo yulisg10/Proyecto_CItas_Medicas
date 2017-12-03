@@ -51,16 +51,17 @@ class UsuarioCreate(CreateView):
 			return self.render_to_response(self.get_context_data(form=form, form2=form2))
 
 
-class UsuarioUpdate(UpdateView):
-	model = Usuario
-	template_name = 'cita_medica/solcitar_cita.html'
-	form_class = UsuarioForm
-	second_form_class = CitaMedicaForm
-	success_url = reverse_lazy("usuario:inicio")
 
 class citar(CreateView):
 	CitaCreate()
 	success_url = reverse_lazy("usuario:inicio")
+
+
+class UsuarioUpdate(UpdateView):
+	model = Usuario
+	form_class = UsuarioForm
+	template_name = 'usuario/usuario_form.html'
+	success_url = reverse_lazy("usuario:listar_usuario")
 
 
 def registro_success(request):

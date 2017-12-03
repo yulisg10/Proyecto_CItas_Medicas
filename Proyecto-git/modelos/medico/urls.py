@@ -1,8 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib.auth.decorators import login_required
-from modelos.usuario.views import index, registro_success
-from modelos.usuario.views import UsuarioCreate, UsuarioUpdate, citar
-from modelos.cita_medica.views import cita_create
+from modelos.medico.views import index, registro_success
+from modelos.medico.views import MedicoCreate, MedicoUpdate
 # #CRUD por funciones 
 # urlpatterns = [ 
 #     url(r'^inicio$', index, name='inicio'),
@@ -15,21 +14,19 @@ from modelos.cita_medica.views import cita_create
 #CRUD por clases
 # urlpatterns = [ 
 #     url(r'^inicio$', index, name='inicio'),
-#     url(r'^nuevo$', UsuarioCreate.as_view(), name='crear_usuario'),
+#     url(r'^nuevo$', MedicoCreate.as_view(), name='crear_usuario'),
 #     url(r'^listar$', UsuarioList.as_view(), name='listar_usuario'),
-#     url(r'^editar/(?P<pk>\d+)/$', UsuarioUpdate.as_view(), name='editar_usuario'),
+#     url(r'^editar/(?P<pk>\d+)/$', MedicoUpdate.as_view(), name='editar_usuario'),
 #     url(r'^eliminar/(?P<pk>\d+)/$', UsuarioDelete.as_view(), name='eliminar_usuario'),
 
 
 urlpatterns = [ 
 #           ruta url usuario   
      url(r'^inicio$', login_required(index) , name='inicio'),
-     url(r'^nuevo$', UsuarioCreate.as_view(), name='registrar'),
-     url(r'^citar$', citar.as_view(), name='citar'),
+     url(r'^nuevo$', MedicoCreate.as_view(), name='registrar'),
      url(r'^registro_success$', registro_success, name='success'),
-     url(r'^editar/(?P<pk>\d+)/$',login_required(UsuarioUpdate.as_view()) , name='editar_usuario'),
-     url(r'^cita_nueva/(?P<id_usuario>\d+)/$', login_required(cita_create), name='cita_nueva'),
+     url(r'^editar/(?P<pk>\d+)/$',login_required(MedicoUpdate.as_view()) , name='editar'),
 #     url(r'^listar$', UsuarioList.as_view(), name='listar_usuario'),
-#     url(r'^nuevo_usuario$', UsuarioCreate.as_view(), name='crear_usuario'),
+#     url(r'^nuevo_usuario$', MedicoCreate.as_view(), name='crear_usuario'),
 #     url(r'^validar/(?P<id_usuario>\d+)/$', validar, name='validarform'),
 ]

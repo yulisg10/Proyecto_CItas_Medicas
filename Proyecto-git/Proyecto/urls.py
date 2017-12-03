@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^usuario/', include('modelos.usuario.urls', namespace="usuario")),
     url(r'^cita_medica/', include('modelos.cita_medica.urls', namespace="cita_medica")),
+    url(r'^medico/', include('modelos.medico.urls', namespace="medico")),
     #url(r'^medico/', include('modelos.medico.urls', namespace="medico")),
     url(r'^accounts/login/', login, {'template_name':'login.html'}, name='login'),
     url(r'^logout/', logout_then_login, name='logout'),

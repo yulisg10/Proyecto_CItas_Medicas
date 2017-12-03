@@ -14,5 +14,5 @@ class CitaMedica(models.Model):
 	medico = models.ForeignKey(Medico)
 	fecha_cita = models.DateField()
 	hora_cita = models.DateTimeField()
-	fecha_solicitud = models.DateField()
-	hora_solicitud = models.DateTimeField()
+	fecha_solicitud = models.DateField(auto_now_add=True, blank=True)
+	hora_solicitud = models.DateTimeField(auto_now_add=True, blank=True)
