@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+ {% block content %}
+
+<table class="table table-bordered">
+
+<thead>
+	<tr>
+		<td>Usario</td>
+		<td>Medico</td>
+		<td>Fecha cita</td>
+		<td>Hora cita</td>
+		<td>Acciones</td>
+	</tr>
+</thead>
+
+ <tbody>
+ 	<!-- usuarios por funciones !-->
+ 	<!-- object_list por clase !-->
+ 	{% if object_list  %}
+ 	{% for usuario in object_list %}
+ 	<tr>
+ 		<td>{{ cita_medica.usuario.numero_documento }}</td>
+ 		<td>{{ cita_medica.medico.numero_documento }}</td>
+ 		<td>{{ cita_medica.fecha_cita }}</td>
+ 		<td>{{ cita_medica.hora_cita }}</td>
+ 		<td>yo elimino en un futuro no muy lejano</td>		
+ 	</tr>
+ 	{% endfor %}
+ 	{% else %}
+ 	<h1>No hay registros de Usuarios</h1>
+ 	{% endif %}
+
+ </tbody>
+
+ </table>
+
+ {% endblock %}+

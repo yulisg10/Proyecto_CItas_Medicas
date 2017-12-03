@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+ {% block content %}
+
+<table class="table table-bordered">
+
+<thead>
+	<tr>
+		<td>Numero Documento</td>
+		<td>Tipo Documento</td>
+		<td>Nombre</td>
+		<td>Apellido</td>
+		<td>Teléfono</td>
+		<td>Correo</td>
+		<td>Fecha de Nacimiento</td>
+		<td>Dirección</td>
+		<td>Ciudad</td>
+		<td>Género</td>	
+		<td>Titulo</td>
+		<td>Acciones</td>
+	</tr>
+</thead>
+
+ <tbody>
+ 	<!-- usuarios por funciones !-->
+ 	<!-- object_list por clase !-->
+ 	{% if object_list  %}
+ 	{% for usuario in object_list %}
+ 	<tr>
+ 		<td>{{ usuario.numero_documento }}</td>
+ 		<td>{{ usuario.tipo_documento }}</td>
+ 		<td>{{ usuario.nombre }}</td>
+ 		<td>{{ usuario.apellido }}</td>
+ 		<td>{{ usuario.telefono }}</td>
+ 		<td>{{ usuario.correo }}</td>
+ 		<td>{{ usuario.fecha_nacimiento }}</td>
+ 		<td>{{ usuario.direccion }}</td>
+ 		<td>{{ usuario.ciuada}}</td>
+ 		<td>{{ usuario.genero}}</td>
+ 		<td>{{ usuario.titulo }}</td>
+		<td>
+		
+ 	</tr>
+ 	{% endfor %}
+ 	{% else %}
+ 	<h1>No hay registros de Usuarios</h1>
+ 	{% endif %}
+
+ </tbody>
+
+ </table>
+
+ {% endblock %}
